@@ -6,7 +6,7 @@ Requires=network-online.target
 [Service]
 Type=simple
 Restart=always
-RestartSec=30sec
+RestartSec=30
 ExecStart=/usr/local/bin/endlessh
 ExecReload=/bin/kill -s HUP $MAINPID
 KillSignal=SIGTERM
@@ -23,6 +23,7 @@ PrivateTmp=true
 PrivateDevices=true
 ProtectSystem=full
 ProtectHome=true
+PrivateUsers=true
 InaccessiblePaths=/run /var
 
 ## If you want Endlessh to bind on ports < 1024
@@ -31,7 +32,6 @@ InaccessiblePaths=/run /var
 ## 2) uncomment following line
 #AmbientCapabilities=CAP_NET_BIND_SERVICE
 ## 3) comment following line
-PrivateUsers=true
 
 NoNewPrivileges=true
 ConfigurationDirectory=endlessh

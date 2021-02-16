@@ -1,15 +1,10 @@
 .POSIX:
 CC       = cc
-CFLAGS   = -std=c99
-CPPFLAGS =
-LDFLAGS  = -ggdb3
-LDLIBS   =
-PREFIX   = /usr
 
 all: endlessh
 
 endlessh: endlessh.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ endlessh.c $(LDLIBS)
+	$(CC) -std=c99 $(CFLAGS) $(LDFLAGS) -o $@ endlessh.c $(LDLIBS)
 
 install: endlessh
 	install -d $(DESTDIR)$(PREFIX)/bin
