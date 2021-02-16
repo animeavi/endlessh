@@ -36,6 +36,7 @@ IPAccounting=yes
 #  SystemCallFilter=~@mount.
 
 ProtectHome=yes
+ProtectProc=yes
 ProtectSystem=strict
 # ReadWritePaths=-/example/path
 PrivateTmp=yes
@@ -84,7 +85,7 @@ RestrictSUIDSGID=yes
 ################
 
 SystemCallFilter=@system-service
-# SystemCallFilter=~@resources @privileged
+SystemCallFilter=~@resources @privileged
 SystemCallArchitectures=native
 
 [Install]
