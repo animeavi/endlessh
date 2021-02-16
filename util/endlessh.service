@@ -36,8 +36,7 @@ IPAccounting=yes
 #  SystemCallFilter=~@mount.
 
 ProtectHome=yes
-ProtectSystem=full
-InaccessiblePaths=/run /var
+ProtectSystem=strict
 # ReadWritePaths=-/example/path
 PrivateTmp=yes
 
@@ -67,7 +66,7 @@ ProtectKernelLogs=yes
 # Misc #
 ########
 
-CapabilityBoundingSet=~CAP_SYS_ADMIN
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 # AmbientCapabilities= service runs as root
 NoNewPrivileges=yes
 ProtectHostname=yes
