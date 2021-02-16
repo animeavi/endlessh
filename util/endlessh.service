@@ -10,7 +10,6 @@ RestartSec=30
 ExecStart=/usr/bin/endlessh
 ExecReload=/bin/kill -s HUP $MAINPID
 KillSignal=SIGTERM
-ConfigurationDirectory=endlessh
 
 # Stop trying to restart the service if it restarts too many times in a row
 StartLimitInterval=5min
@@ -90,4 +89,3 @@ SystemCallArchitectures=native
 
 [Install]
 WantedBy=multi-user.target
-
