@@ -11,6 +11,15 @@ occurs, this program doesn't depend on any cryptographic libraries. It's
 a simple, single-threaded, standalone C program. It uses `poll()` to
 trap multiple clients at a time.
 
+## Differences between this fork and skeeto's upstream
+This fork implements a better systemd service file, with support for `systemctl reload` and better sandboxing. I've also unified the usage information between the man page, readme, and actual `endlessh` binary.
+
+These improvements are mostly based on nbraud's and phf's upstream PR's:
+- https://github.com/skeeto/endlessh/pull/42
+- https://github.com/skeeto/endlessh/pull/55
+
+You can find a package for this fork on the AUR under `krathalans-endlessh-git`.
+
 ## Usage
 
 Usage information is printed with `-h`.
