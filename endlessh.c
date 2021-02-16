@@ -36,7 +36,7 @@
 #if defined(__FreeBSD__)
 #  define DEFAULT_CONFIG_FILE "/usr/local/etc/endlessh.config"
 #else
-#  define DEFAULT_CONFIG_FILE "/etc/endlessh/config"
+#  define DEFAULT_CONFIG_FILE "/etc/endlessh.conf"
 #endif
 
 #define DEFAULT_BIND_FAMILY  AF_UNSPEC
