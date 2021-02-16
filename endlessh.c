@@ -516,8 +516,8 @@ config_log(const struct config *c)
 static void
 usage(FILE *f)
 {
-    fprintf(f, "Usage: endlessh [-vh] [-46] [-d MS] [-f CONFIG] [-l LEN] "
-                               "[-m LIMIT] [-p PORT]\n");
+    fprintf(f, "Usage: endlessh [-vVhs] [-46] [-d MS] [-f CONFIG] [-l LEN] "
+            "[-m LIMIT] [-p PORT]\n");
     fprintf(f, "  -4        Bind to IPv4 only\n");
     fprintf(f, "  -6        Bind to IPv6 only\n");
     fprintf(f, "  -d INT    Message millisecond delay ["
