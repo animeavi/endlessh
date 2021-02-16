@@ -10,6 +10,7 @@ RestartSec=30
 ExecStart=/usr/bin/endlessh
 ExecReload=/bin/kill -s HUP $MAINPID
 KillSignal=SIGTERM
+ConfigurationDirectory=endlessh
 
 # Stop trying to restart the service if it restarts too many times in a row
 StartLimitInterval=5min
@@ -19,35 +20,73 @@ StandardOutput=journal
 StandardError=journal
 StandardInput=null
 
-PrivateTmp=true
-PrivateDevices=true
-ProtectSystem=full
-ProtectHome=true
-PrivateUsers=true
-InaccessiblePaths=/run /var
+##############
+# Networking #
+##############
 
-## If you want Endlessh to bind on ports < 1024
-## 1) run:
-##     setcap 'cap_net_bind_service=+ep' /usr/local/bin/endlessh
-## 2) uncomment following line
-#AmbientCapabilities=CAP_NET_BIND_SERVICE
-## 3) comment following line
-
-NoNewPrivileges=true
-ConfigurationDirectory=endlessh
-ProtectKernelLogs=true
-ProtectKernelTunables=true
-ProtectKernelModules=true
-ProtectControlGroups=true
 RestrictAddressFamilies=AF_INET AF_INET6
-RestrictNamespaces=true
-RestrictRealtime=true
+IPAccounting=yes
 
-LockPersonality=true
-MemoryDenyWriteExecute=true
+###############
+# File system #
+###############
+#  Note that the effect of these settings may be undone by privileged processes. In order to
+#  set up an effective sandboxed environment for a unit it is thus recommended to combine
+#  these settings with either CapabilityBoundingSet=~CAP_SYS_ADMIN or
+#  SystemCallFilter=~@mount.
+
+ProtectHome=yes
+ProtectSystem=full
+InaccessiblePaths=/run /var
+# ReadWritePaths=-/example/path
+PrivateTmp=yes
+
+###################
+# User separation #
+###################
+
+# PrivateUsers= service runs as root
+# DynamicUser= service runs as root
+
+###########
+# Devices #
+###########
+
+PrivateDevices=yes
+# DeviceAllow=/dev/exampledevice
+
+##########
+# Kernel #
+##########
+
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+
+########
+# Misc #
+########
+
+CapabilityBoundingSet=~CAP_SYS_ADMIN
+# AmbientCapabilities= service runs as root
+NoNewPrivileges=yes
+ProtectHostname=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+# RemoveIPC= service runs as root
+
+################
+# System calls #
+################
+
+SystemCallFilter=@system-service
+# SystemCallFilter=~@resources @privileged
 SystemCallArchitectures=native
-SystemCallFilter=@basic-io @file-system @io-event @network-io @signal
-SystemCallFilter=arch_prctl brk mprotect
 
 [Install]
 WantedBy=multi-user.target
