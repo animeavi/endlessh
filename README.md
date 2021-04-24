@@ -12,13 +12,17 @@ a simple, single-threaded, standalone C program. It uses `poll()` to
 trap multiple clients at a time.
 
 ## Differences between this fork and skeeto's upstream
-This fork implements a better systemd service file, with support for `systemctl reload` and better sandboxing. I've also unified the usage information between the man page, readme, and actual `endlessh` binary.
+This fork:
 
-These improvements are mostly based on nbraud's and phf's upstream PR's:
-- https://github.com/skeeto/endlessh/pull/42
-- https://github.com/skeeto/endlessh/pull/55
+- implements a better systemd service file, with support for `systemctl reload` and much better sandboxing, including `DynamicUser=yes` (upstream PR#42 + my own improvements)
+- adds an optional AppArmor profile
+- unifies the usage information between the man page, readme, and actual `endlessh` binary (upstream PR#55)
+- adds meson build support (upstream PR#56 + my own improvements)
+- updates Docker Alpine version to 3.13 (upstream PR#61)
+- adds a post-upgrade pacman hook to restart the `endlessh.service` if it's running
+- AUR/Arch only: uses a simpler PKGBUILD compared to endlessh-git
 
-You can find a package for this fork on the AUR under `krathalans-endlessh-git`.
+You can find a package for this fork on the AUR under [`krathalans-endlessh-git`](https://aur.archlinux.org/packages/krathalans-endlessh-git/).
 
 ## Usage
 
