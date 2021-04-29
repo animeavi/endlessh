@@ -19,8 +19,10 @@ This fork:
 - unifies the usage information between the man page, readme, and actual `endlessh` binary (upstream PR#55)
 - adds meson build support (upstream PR#56 + my own improvements)
 - updates Docker Alpine version to 3.13 (upstream PR#61)
+
+AUR/Arch only:
 - adds a post-upgrade pacman hook to restart the `endlessh.service` if it's running
-- AUR/Arch only: uses a simpler PKGBUILD compared to endlessh-git
+- uses a simpler PKGBUILD compared to endlessh-git
 
 You can find a package for this fork on the AUR under [`krathalans-endlessh-git`](https://aur.archlinux.org/packages/krathalans-endlessh-git/).
 
