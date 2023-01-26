@@ -18,7 +18,7 @@ This fork:
 - adds an optional AppArmor profile
 - unifies the usage information between the man page, readme, and actual `endlessh` binary (upstream PR#55)
 - adds meson build support (upstream PR#56 + my own improvements)
-- updates Docker Alpine version to 3.13 (upstream PR#61)
+- updates Docker Alpine version to 3.16 (upstream PR#85)
 
 AUR/Arch only:
 - adds a post-upgrade pacman hook to restart the `endlessh.service` if it's running
