@@ -27,9 +27,9 @@
 
 #define ENDLESSH_VERSION           1.1
 
-#define DEFAULT_PORT              2222
+#define DEFAULT_PORT                22
 #define DEFAULT_DELAY            10000  /* milliseconds */
-#define DEFAULT_DELAY_JITTER         0  /* Percent; for backward compatibility */
+#define DEFAULT_DELAY_JITTER        50  /* Percent; for backward compatibility */
 #define DEFAULT_MAX_LINE_LENGTH     32
 #define DEFAULT_MAX_CLIENTS       4096
 
